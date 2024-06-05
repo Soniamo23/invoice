@@ -13,8 +13,8 @@ import jakarta.persistence.Table
 import java.util.*
 
 @Entity
-@Table (name= "invoice")
-class Invoice {
+@Table (name= "invoice_view")
+class InvoiceView {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     @Column(updatable = false)
@@ -27,4 +27,6 @@ class Invoice {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "client_id")
     var client: Client? = null
+
+    var fullname: String? = null
 }

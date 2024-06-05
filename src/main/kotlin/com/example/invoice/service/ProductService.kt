@@ -1,22 +1,36 @@
 package com.example.invoice.service
 
-import ch.qos.logback.core.net.server.Client
 import com.example.invoice.entity.Product
-import com.example.invoice.repository.ClientRepository
 import com.example.invoice.repository.ProductRepository
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Service
 
 @Service
-class ProductService {
+class ProductService{
     @Autowired
-    lateinit var productRepository: ProductRepository
+    private lateinit var productRepository: ProductRepository
 
-    fun list (): List<Client> {
+    fun list (): List<Product>{
         return productRepository.findAll()
     }
-    fun save (product: Product):Product{
-        return productRepository.save (product)
+    fun getById(id: Long) : Product {
+        return productRepository.findById(id).orElseThrow{ RuntimeException("Product not found!") }
     }
-
+    fun save (product: Product): Product {
+        return productRepository.save(product)
+    }
+    fun update(id: Long, product: Product): Product {
+        val existingProduct = productRepository.findById(id).orElseThrow { RuntimeException("product not found") }
+        existingProduct.description = product.description
+        existingProduct.brand = product.brand
+        existingProduct.price = product.price
+        return productRepository.save(existingProduct)
+    }
+    fun delete(id:Long){
+        if (productRepository.existsById(id)){
+            productRepository.deleteById(id)
+        }else{
+            throw RuntimeException("product not found")
+        }
+    }
 }
