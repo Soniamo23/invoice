@@ -6,13 +6,19 @@ import jakarta.persistence.*
 @Entity
 @Table(name = "detail")
 class Detail {
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(updatable = false)
     var id: Long? = null
-    var quantity: Long? = null
+    var quantity: Int = 0
     var price: Double? = null
-    var subtotal: Double? = null
-    var invoiceId: Long? = null
-    var productId: Long? = null
+    @Column(name = "subtotal",  nullable = false, insertable = false)
+    var subTotal: Double? = null
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "invoice_id")
+    var invoice: Invoice? = null
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "product_id")
+    var product:Product? = null
 }

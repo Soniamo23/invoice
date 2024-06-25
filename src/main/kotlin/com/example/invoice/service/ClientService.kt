@@ -23,7 +23,7 @@ class ClientService {
     fun update(id: Long, client:Client):Client {
         val existingClient = clientRepository.findById(id).orElseThrow { RuntimeException("client not found") }
         existingClient.nui = client.nui
-        existingClient.fullname = client.fullname
+        existingClient.fullName = client.fullName
         existingClient.email = client.email
         return clientRepository.save(existingClient)
     }

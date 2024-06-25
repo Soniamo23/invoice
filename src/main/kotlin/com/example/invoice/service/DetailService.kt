@@ -23,9 +23,9 @@ class DetailService {
         val existingDetail = detailRepository.findById(id).orElseThrow { RuntimeException("detail not found") }
         existingDetail.quantity = detail.quantity
         existingDetail.price = detail.price
-        existingDetail.subtotal = detail.subtotal
-        existingDetail.invoiceId = detail.invoiceId
-        existingDetail.productId = detail.productId
+        existingDetail.subTotal = detail.subTotal
+        existingDetail.invoice = detail.invoice
+        existingDetail.product = detail.product
         return detailRepository.save(existingDetail)
     }
     fun delete(id:Long){
