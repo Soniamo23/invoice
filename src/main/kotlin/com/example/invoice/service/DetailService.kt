@@ -35,4 +35,21 @@ class DetailService {
             throw RuntimeException("detail not found")
         }
     }
+    fun validateQuantity(quantity: Int): Boolean {
+        return quantity > 0
+    }
+
+    fun main() {
+        // Example usage:
+        val productQuantity = 5
+
+        if (validateQuantity(productQuantity)) {
+            println("The quantity is valid.")
+        } else {
+            println("The quantity is not valid.")
+        }
+    }
+
+
+
 }

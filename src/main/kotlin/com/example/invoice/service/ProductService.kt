@@ -33,4 +33,18 @@ class ProductService{
             throw RuntimeException("product not found")
         }
     }
+    fun validateStock(stock: Int): Boolean {
+        return stock > 0
+    }
+
+    fun main() {
+        val stockProducto = 15
+
+        if (validateStock(stockProducto)) {
+            println("El stock es válido.")
+        } else {
+            println("El stock no es válido.")
+        }
+    }
+
 }

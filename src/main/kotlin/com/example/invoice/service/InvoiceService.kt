@@ -47,4 +47,27 @@ class InvoiceService {
             throw RuntimeException("invoice not found")
         }
     }
+    fun validateInvoiceCode(invoiceCode: String): Boolean {
+        val sections = invoiceCode.split("-")
+        if (sections.size != 3) {
+            return false
+        }
+
+        if (sections[0].length != 3 || sections[1].length != 3 || sections[2].length != 9) {
+            return false
+        }
+
+
+        if (!sections[0].all { it.isDigit() } || !sections[1].all { it.isDigit() } || !sections[2].all { it.isDigit() }) {
+            return false
+        }
+        return true
+    }
+
+    fun main() {
+        val code = "001-001-000000001"
+        println(validateInvoiceCode(code))
+    }
+
+
 }
