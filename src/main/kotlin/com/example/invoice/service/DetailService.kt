@@ -40,7 +40,7 @@ class DetailService {
     }
 
     fun main() {
-        // Example usage:
+
         val productQuantity = 5
 
         if (validateQuantity(productQuantity)) {

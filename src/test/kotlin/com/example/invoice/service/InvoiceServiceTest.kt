@@ -41,7 +41,7 @@ class InvoiceServiceTest {
     }
     @Test
     fun saveWhenNiuClientIsIncorrect() {
-        invoiceMock.code = "1563244"
+        invoiceMock.code = "1589563244"
         Mockito.`when`(invoiceRepository.save(Mockito.any(Invoice::class.java))).thenReturn(invoiceMock)
 
         val response = invoiceService.validateInvoiceCode(invoiceMock.code!!)
