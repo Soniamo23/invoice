@@ -22,8 +22,10 @@ class ProductService{
     fun update(id: Long, product: Product): Product {
         val existingProduct = productRepository.findById(id).orElseThrow { RuntimeException("product not found") }
         existingProduct.description = product.description
-        existingProduct.brand = product.brand
+        existingProduct.brant = product.brant
         existingProduct.price = product.price
+        existingProduct.stock = product.stock
+
         return productRepository.save(existingProduct)
     }
     fun delete(id:Long){

@@ -2,7 +2,7 @@
 
   "id":1,
   "description" :"Producto",
-  "brand": "Marca XYZ",
+  "brant": "Marca XYZ",
   "price": 200.0,
   "stock" : 10
 

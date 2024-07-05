@@ -15,7 +15,7 @@ class Product {
     @Column(name = "id")
     var id: Long? = null
     var description: String? = null
-    var brand: String? = null
+    var brant: String? = null
     var price: Double? = null
     var stock: Long?= null
 }

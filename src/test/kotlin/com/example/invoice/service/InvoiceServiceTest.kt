@@ -16,7 +16,9 @@ import org.springframework.boot.test.context.SpringBootTest
 import java.io.File
 
 @SpringBootTest
-class InvoiceServiceTest {
+class
+
+InvoiceServiceTest {
     @Mock
     lateinit var invoiceRepository: InvoiceRepository
 

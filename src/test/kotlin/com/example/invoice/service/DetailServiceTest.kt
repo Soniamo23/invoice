@@ -22,7 +22,7 @@ class DetailServiceTest {
     @Mock
     lateinit var detailRepository: DetailRepository
 
-    val jsonString = File("./src/test/resources/Client/newClient.json").readText(Charsets.UTF_8)
+    val jsonString = File("./src/test/resources/Detail/newDetail.json").readText(Charsets.UTF_8)
     val detailMock = Gson().fromJson(jsonString, Detail::class.java)
 
     @Test
